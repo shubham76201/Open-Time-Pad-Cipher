@@ -1,0 +1,54 @@
+print('Open Time pad Cipher')
+print(' -- !! Important Note Plain text and Key should be of equal length')
+Plain_text= input('Enter the Plain Text : ')
+Key= input('Enter the Key : ')
+if len(Plain_text)==len(Key):
+ print("Plain Text             :" + " "+ Plain_text)
+ Plain_text1=[]
+ Plain_text2=[]
+ for i in Plain_text:
+    Plain_text1.append(i)
+ for i in Plain_text:
+    Plain_text2.append(ord(i)-96)
+ print('Listing of Alphabet    : ' , Plain_text1)
+ print('Numbering in Alphabet  : ' , Plain_text2)
+ print('  ')
+ print("Key                    :" + " "+ Key)
+ key1=[]
+ key2=[]
+ final=[]
+
+ for i in Key:
+    key1.append(i)
+ for i in Key:
+    key2.append(ord(i)-96)
+ print('Listing of Alphabet    :  ' , key1)
+ print('Numbering in Alphabet  :  ' , key2)
+
+ # printing original lists
+ print("Numbering in Plain Text:   " + str(Plain_text2))
+ print("Numbering in Key       :   " + str(key2))
+
+ # using naive method to
+ # add two list
+ res_list = []
+ for i in range(0, len(Plain_text2)):
+     res_list.append(Plain_text2[i] + key2[i])
+
+ # printing resultant list
+ print("Added the Numbers      :   " + str(res_list))
+ for i in res_list:
+     if i>26:
+         k= i-26
+         m=k+96
+         m3= chr(m)
+         final.append(m3)
+     else:
+         m1=i+96
+         m2 =chr(m1)
+         final.append(m2)
+ print('Cipher Text            :  ',final)
+ string2 = ""
+ print('Ciper Text             :  ' ,string2.join(final))
+else:
+    print('Plain Text Size not Equal to Key Size')
